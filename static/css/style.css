@@ -1,0 +1,109 @@
+/* Custom styles extending Tailwind */
+
+/* Vietnamese font support */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom color variables (match Tailwind config) */
+:root {
+    --color-primary: #1E40AF;
+    --color-secondary: #14B8A6;
+    --color-accent: #FB923C;
+}
+
+/* Form focus states */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+/* Animation for fade-in effect */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pre-animation state for elements with data-animate */
+[data-animate] {
+    opacity: 0;
+}
+
+/* Button hover transitions */
+.btn-primary {
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+/* Section scroll offset for fixed header */
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+/* Select dropdown styling for dark backgrounds */
+select option {
+    background-color: #1E40AF;
+    color: white;
+}
+
+/* Mobile form adjustments - prevent iOS zoom */
+@media (max-width: 640px) {
+    input,
+    select,
+    textarea,
+    button {
+        font-size: 16px;
+    }
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 768px) {
+    a,
+    button {
+        min-height: 44px;
+    }
+}
+
+/* Mobile tap highlight */
+@media (hover: none) {
+    a,
+    button {
+        -webkit-tap-highlight-color: rgba(30, 64, 175, 0.1);
+    }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in {
+        animation: none;
+    }
+
+    [data-animate] {
+        opacity: 1;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .btn-primary:hover {
+        transform: none;
+    }
+}
