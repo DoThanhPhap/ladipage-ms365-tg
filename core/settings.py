@@ -2,6 +2,7 @@
 Django settings for Truong Gia Landing Page.
 """
 
+import os
 from pathlib import Path
 from decouple import config
 
@@ -9,9 +10,9 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings from environment
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY', default='dev-secret-key-change-in-production')
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='.vercel.app,localhost,127.0.0.1').split(',')
 
 # Application definition - minimal for landing page
 INSTALLED_APPS = [

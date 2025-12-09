@@ -2,16 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "core/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.9"
-      }
-    },
-    {
-      "src": "static/**",
-      "use": "@vercel/static"
+      "src": "api/index.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -21,10 +13,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "core/wsgi.py"
+      "dest": "/api/index.py"
     }
-  ],
-  "env": {
-    "DJANGO_SETTINGS_MODULE": "core.settings"
-  }
+  ]
 }
