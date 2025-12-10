@@ -17,8 +17,8 @@ SECRET_KEY = config('SECRET_KEY', default='dev-secret-key-change-in-production')
 DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ['*']  # Allow all hosts for development
 
-# CSRF trusted origins for Railway
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://*.up.railway.app,https://*.railway.app,https://*.vercel.app').split(',')
+# CSRF trusted origins
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://*.up.railway.app,https://*.railway.app,https://*.vercel.app,https://*.onrender.com').split(',')
 
 # Application definition
 INSTALLED_APPS = [
