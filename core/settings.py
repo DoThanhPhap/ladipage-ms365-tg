@@ -18,7 +18,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ['*']  # Allow all hosts for development
 
 # CSRF trusted origins
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://*.up.railway.app,https://*.railway.app,https://*.vercel.app,https://*.onrender.com').split(',')
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://*.up.railway.app,https://*.railway.app,https://*.vercel.app,https://*.onrender.com,https://*.cloudnetwork.vn').split(',')
 
 # Application definition
 INSTALLED_APPS = [

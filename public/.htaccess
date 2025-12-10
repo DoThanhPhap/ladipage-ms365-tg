@@ -1,0 +1,11 @@
+# DirectAdmin Python App - Static files and routing
+RewriteEngine On
+
+# Serve static files directly
+RewriteCond %{REQUEST_URI} ^/static/
+RewriteRule ^static/(.*)$ /static/$1 [L]
+
+# Pass all other requests to the Python app
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ / [L]
